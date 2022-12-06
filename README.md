@@ -4,6 +4,8 @@
   <img src="icon.png" width="100" height="100">
 </p>
 
+Created by: [Alec Dibble](https://www.alecdibble.com)
+
 ## Functionality
 
 * Copies last filled out journal to today's journal

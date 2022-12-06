@@ -32,3 +32,13 @@ Created by: [Alec Dibble](https://www.alecdibble.com)
      2. Enable Developer Mode in Logseq
 
      3. Click `Plugins` -> `Load Unpacked Plugin` and select this repo's folder
+
+## Change Log
+
+* **1.1.0**
+  * Added error handling
+  * Added better UI messaging
+  * Upgraded Logseq library version
+
+* **1.0.0**
+  * Initial release

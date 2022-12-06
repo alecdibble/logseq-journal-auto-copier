@@ -94,25 +94,36 @@ async function copyPageToTodaysJournalPage(page:string) {
 }
 
 async function handleCron() {
-  config = await logseq.App.getUserConfigs();
-  let page = await getTodaysJournalPage();
-  if(!page) {
-    await logseq.Editor.createPage(
-      format(new Date(), config.preferredDateFormat),
-      {},
-      {
-        createFirstBlock: true,
-        redirect: false,
-        journal: true,
-      }
-    );
-  }
-  const pageEmptyCheck = await isPageEmpty(page.name)
-  if(!pageEmptyCheck) return
-  
-  const lastPageName:string = await getLastNonEmptyJournalPage();
+  try {
+    config = await logseq.App.getUserConfigs();
+    let page = await getTodaysJournalPage();
+    if(!page) {
+      await logseq.Editor.createPage(
+        format(new Date(), config.preferredDateFormat),
+        {},
+        {
+          createFirstBlock: true,
+          redirect: false,
+          journal: true,
+        }
+      );
+    }
+    const pageEmptyCheck = await isPageEmpty(page.name)
+    if(!pageEmptyCheck) return
+    
+    const lastPageName:string = await getLastNonEmptyJournalPage();
 
-  await copyPageToTodaysJournalPage(lastPageName)  
+    await copyPageToTodaysJournalPage(lastPageName)  
+
+    await logseq.UI.showMsg(`Logseq Journal Auto Copier: Copied notes journal from ${lastPageName} to today's journal!`, 'success', {
+      timeout: 0
+    });
+  }
+  catch(e) {
+    await logseq.UI.showMsg(`Logseq Journal Auto Copier: Failure to copy journal: (${e.message})`, 'error', {
+      timeout: 0
+    });
+  }
 }
 
 async function main() {

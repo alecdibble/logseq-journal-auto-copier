@@ -1,6 +1,6 @@
 {
   "name": "logseq-journal-auto-copier",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "public/index.html",
   "author": "alecdibble",
   "scripts": {

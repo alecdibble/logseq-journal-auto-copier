@@ -35,6 +35,9 @@ Created by: [Alec Dibble](https://www.alecdibble.com)
 
 ## Change Log
 
+* **1.1.1**
+  * Added a LICENSE file
+
 * **1.1.0**
   * Added error handling
   * Added better UI messaging

@@ -1,0 +1,34 @@
+{
+  "name": "logseq-journal-auto-copier",
+  "version": "1.0.0",
+  "main": "public/index.html",
+  "author": "alecdibble",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "rollup -c -w"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "rollup": "^2.52.2",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@logseq/libs": "^0.0.1-alpha.20",
+    "ace": "^1.3.0",
+    "date-fns": "^2.29.3",
+    "date-fns-tz": "^1.3.4",
+    "lodash.debounce": "^4.0.8"
+  },
+  "logseq": {
+    "id": "alecdibble_logseq-journal-auto-copier",
+    "icon": "./icon.png"
+  }
+}

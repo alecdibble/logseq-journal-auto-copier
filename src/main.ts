@@ -15,6 +15,8 @@ function getNthDaysAgoString(n:number) {
 }
 
 function isPageTreeEmpty(tree) {
+  if(!tree) return true
+  if(Array.isArray(tree) && tree.length < 1) return true
   if( tree.length < 2 && (!tree[0].content || tree[0].content === '')) return true;
   if(tree.find(t => t.content !== '')) return false
   return true
@@ -29,7 +31,6 @@ async function getLastNonEmptyJournalPage() {
   let counter = 1;
   while(counter < 50) {
     let page = await logseq.Editor.getPage(getNthDaysAgoString(counter));
-    console.log(page)
     if(page) {
       if(!(await isPageEmpty(page.name))) return page.name
     }
@@ -65,7 +66,6 @@ async function handleChildCopying(uuid, childTree) {
 }
 
 async function copyPageToTodaysJournalPage(page:string) {
-  console.log("In copyPageToTodaysJournalPage")
   const todayPage = await getTodaysJournalPage()
   const lastPageTree = await logseq.Editor.getPageBlocksTree(page);
 
@@ -116,9 +116,8 @@ async function handleCron() {
 }
 
 async function main() {
-  console.log("Starting")
   await handleCron()
-  setInterval(handleCron, 6000);
+  setInterval(handleCron, 10000);
 }
 
 logseq.ready(main).catch(console.error);

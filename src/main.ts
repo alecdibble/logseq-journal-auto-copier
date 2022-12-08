@@ -113,6 +113,8 @@ async function handleCron() {
     
     const lastPageName:string = await getLastNonEmptyJournalPage();
 
+    if(!lastPageName) return
+    
     await copyPageToTodaysJournalPage(lastPageName)  
 
     await logseq.UI.showMsg(`Logseq Journal Auto Copier: Copied notes journal from ${lastPageName} to today's journal!`, 'success', {
@@ -120,6 +122,7 @@ async function handleCron() {
     });
   }
   catch(e) {
+    console.log(e)
     await logseq.UI.showMsg(`Logseq Journal Auto Copier: Failure to copy journal: (${e.message})`, 'error', {
       timeout: 0
     });

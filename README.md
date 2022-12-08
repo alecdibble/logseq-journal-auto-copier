@@ -35,6 +35,9 @@ Created by: [Alec Dibble](https://www.alecdibble.com)
 
 ## Change Log
 
+* **1.2.1**
+  * Added handling for a brand new graph with no previous journal days
+
 * **1.1.1**
   * Added a LICENSE file
 

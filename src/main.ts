@@ -108,6 +108,9 @@ async function handleCron() {
         }
       );
     }
+
+    if(!page) return
+    
     const pageEmptyCheck = await isPageEmpty(page.name)
     if(!pageEmptyCheck) return
     
